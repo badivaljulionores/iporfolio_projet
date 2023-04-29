@@ -1,6 +1,6 @@
 # iPortfolio_projet
-Nouveau projet collaboratif entre badival et Tsafack Megnekeu Junior
+Nouveau projet collaboratif entre badival et Junior
 
 ## Auteurs
-Baheng Dieudonnee
+Baheng Dieudonné
 Tsafack Megnekeu junior
