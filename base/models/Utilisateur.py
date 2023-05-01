@@ -12,7 +12,7 @@ from .UserCompetence import UserCompetence
 from .UserService import UserService
 from .Messages import Messages
 from .UserMessage import UserMessage
-# Create your models here.
+# Create your models.
 
 class Utilisateur(AbstractUser):
     first_name = models.CharField(max_length=128, verbose_name='prénom')
