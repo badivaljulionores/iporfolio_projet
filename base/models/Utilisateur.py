@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser, Group
+from django.contrib.auth.models import AbstractUser, Permission, Group
 from django.db import models
 from gdstorage.storage import GoogleDriveStorage
 from decouple import config
@@ -17,16 +17,16 @@ from .UserMessage import UserMessage
 class Utilisateur(AbstractUser):
     first_name = models.CharField(max_length=128, verbose_name='prénom')
     last_name = models.CharField(max_length=128, verbose_name='nom')
-    telephone = models.CharField(verbose_name='téléphone')
+    telephone = models.CharField(max_length=128, verbose_name='téléphone')
     active = models.BooleanField(default=True)
     bloque = models.BooleanField(default=False)
     date_birth = models.DateField(verbose_name = "date de naissance",null=True, blank=True)
-    level_academic = models.CharField()
-    ville = models.CharField()
+    level_academic = models.CharField(max_length=128)
+    ville = models.CharField(max_length=128)
     resume = models.TextField()
     petite_biographie_1 = models.TextField()
     petite_biographie_2 = models.TextField()
-    localisation_adresse = models.CharField("Zone géographique")
+    localisation_adresse = models.CharField(max_length=128, verbose_name="Zone géographique")
     localisation_lattitude = models.IntegerField(default=0)
     localisation_longitude = models.IntegerField(default=0)
     
@@ -44,6 +44,9 @@ class Utilisateur(AbstractUser):
     reseaux = models.ManyToManyField(Reseaux_sociaux, related_name='utilisateurs', blank=True)
     services = models.ManyToManyField(Services, through=UserService)
     messages = models.ManyToManyField(Messages, through=UserMessage)
+    
+    groups = models.ManyToManyField(Group, related_name='user_groups')
+    user_permissions = models.ManyToManyField(Permission, related_name='user_permissions')
     
     
     

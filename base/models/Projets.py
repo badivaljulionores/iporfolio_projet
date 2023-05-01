@@ -4,8 +4,8 @@ from decouple import config
 # Create your models here.
 class Projets(models.Model):
     CHOICES = [('personnel', 'PERSONNEL'), ('collaboratif', 'COLLABORATIF')]
-    nom_projet = models.CharField(verbose_name="projet")
-    personnel_collaboratif = models.CharField(choices=CHOICES, verbose_name='personnel ou collaboratif ?')
+    nom_projet = models.CharField(max_length=100, verbose_name="projet")
+    personnel_collaboratif = models.CharField(max_length=100, choices=CHOICES, verbose_name='personnel ou collaboratif ?')
     clients_satisfaits = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
         
     def storage():
