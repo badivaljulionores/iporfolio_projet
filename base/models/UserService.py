@@ -3,7 +3,7 @@ from django.db import models
 # from .Services import Services
 
 class UserService(models.Model):
-    user = models.ForeignKey('Utilisateur', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
     service = models.ForeignKey('Services', on_delete=models.CASCADE)
     
     class Meta:

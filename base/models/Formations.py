@@ -8,7 +8,7 @@ class Formations(models.Model):
     etablissement = models.CharField(max_length=100, verbose_name="Etablissement")
     ville = models.CharField(max_length=100, verbose_name="Ville")
     description = models.CharField(max_length=500, verbose_name="Description")
-    user = models.ForeignKey('Utilisateur', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
     
 
 

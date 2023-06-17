@@ -15,4 +15,4 @@ from .UserMessage import UserMessage
 from .UserMetier import UserMetier
 from .UserProjet import UserProjet
 from .UserService import UserService
-from .Utilisateur import Utilisateur
+from .User import User

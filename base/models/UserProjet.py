@@ -4,7 +4,7 @@ from django.db import models
 # from .Temoignages import Temoignages
 # Create your models here.
 class UserProjet(models.Model):
-    user = models.ForeignKey('Utilisateur', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
     projet = models.ForeignKey('Projets', on_delete=models.CASCADE)
     temoignage = models.ManyToManyField('Temoignages', blank=True)
 
