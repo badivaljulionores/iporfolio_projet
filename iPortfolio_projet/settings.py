@@ -32,7 +32,7 @@ if config('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = [config('ALLOWED_HOSTS')]
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(",")
 
 
 # Application definition
@@ -138,6 +138,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR.joinpath('media/')
+
+#
+# Google Drive Storage Settings
+#
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(BASE_DIR, 'cvmarketstorage-87a2b946f27b.json')
+GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = 'media/' # OPTIONAL
 
 if os.environ.get('ENV') == 'PRODUCTION':
     pass

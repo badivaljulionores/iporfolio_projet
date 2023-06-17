@@ -3,5 +3,5 @@ from django.db import models
 # from .Messages import Messages
 
 class UserMessage(models.Model):
-    user = models.OneToOneField('Utilisateur', on_delete=models.CASCADE)
+    user = models.OneToOneField('User', on_delete=models.CASCADE)
     message = models.ForeignKey('Messages', on_delete=models.CASCADE)

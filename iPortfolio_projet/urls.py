@@ -20,5 +20,7 @@ from base import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name="home"),
+    path('<int:user_id>', views.home, name="home"),
+    path('detail', views.portfolio_details, name="portfolio-details")
+    # path('bio', views.bio, name="bio" )
 ]

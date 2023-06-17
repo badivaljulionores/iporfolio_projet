@@ -14,7 +14,7 @@ from .Messages import Messages
 from .UserMessage import UserMessage
 # Create your models.
 
-class Utilisateur(AbstractUser):
+class User(AbstractUser):
     first_name = models.CharField(max_length=128, verbose_name='prénom')
     last_name = models.CharField(max_length=128, verbose_name='nom')
     telephone = models.CharField(max_length=128, verbose_name='téléphone')
@@ -47,6 +47,8 @@ class Utilisateur(AbstractUser):
     
     groups = models.ManyToManyField(Group, related_name='user_groups')
     user_permissions = models.ManyToManyField(Permission, related_name='user_permissions')
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
     
     
     

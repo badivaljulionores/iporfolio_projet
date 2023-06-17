@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bonjour tout le monde !</title>
+  </head>
+  <body>
+    <div>Bonjour !</div>
+    <script>
+      // Vérifier si l'API Web Authentication est prise en charge par le navigateur
+      if (window.PublicKeyCredential) {
+        // Générer un challenge aléatoire
+        const generateChallenge = () => {
+          const array = new Uint8Array(32); // 32 bytes for the challenge
+          window.crypto.getRandomValues(array);
+          return array;
+        };
+
+        // Obtenir l'empreinte digitale
+        const challenge = generateChallenge();
+        navigator.credentials
+          .get({
+            publicKey: {
+              challenge,
+              authenticatorSelection: { authenticatorAttachment: "platform" },
+              userVerification: "required",
+            },
+          })
+          .then((credential) => {
+            // Empreinte digitale récupérée avec succès
+            console.log(credential);
+          })
+          .catch((error) => {
+            // Erreur lors de la récupération de l'empreinte digitale
+            console.error(error);
+          });
+      } else {
+        // L'API Web Authentication n'est pas prise en charge par le navigateur
+        console.error("L'API Web Authentication n'est pas prise en charge.");
+      }
+    </script>
+  </body>
+</html>

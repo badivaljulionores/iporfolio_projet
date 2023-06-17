@@ -18,7 +18,7 @@ from base.models.UserMessage import UserMessage
 from base.models.UserMetier import UserMetier
 from base.models.UserProjet import UserProjet
 from base.models.UserService import UserService
-from base.models.Utilisateur import Utilisateur
+from base.models.User import User
 
 
 admin.site.register(Categories)
@@ -38,4 +38,4 @@ admin.site.register(UserMessage)
 admin.site.register(UserMetier)
 admin.site.register(UserProjet)
 admin.site.register(UserService)
-admin.site.register(Utilisateur)
+admin.site.register(User)

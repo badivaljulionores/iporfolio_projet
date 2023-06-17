@@ -9,7 +9,7 @@ class Experiences(models.Model):
     ville = models.CharField(max_length=100, verbose_name="Ville")
     contact = models.CharField(max_length=100, verbose_name="Contact")
     description = models.CharField(max_length=500, verbose_name="Description", null=False, blank=False)
-    user = models.ForeignKey('Utilisateur', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
     
 
 
